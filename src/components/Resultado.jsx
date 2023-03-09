@@ -4,8 +4,6 @@ import { GameContext } from '../context/GameContext';
 export const Resultado = () => {
     const {restart, nturno, ganador} = useContext(GameContext);
 
-    console.log({nturno})
-
     if(ganador == 0 && nturno < 42){
         return <></>;
     }

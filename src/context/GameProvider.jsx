@@ -27,7 +27,7 @@ export const GameProvider = ({children}) => {
             setPartida(tablero => {
                 const nValor = tablero;
                 nValor[x][y] = turno;
-                setGanador(comprobarGanador(nValor));
+                setGanador(comprobarGanador(nValor, 4));
                 return nValor;
             });
 

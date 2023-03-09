@@ -1,5 +1,9 @@
-const comprobarDireccion = (x,y,derecha, arriba, partida, tipo, contador = 1) => {
-    if((y == 0 && derecha == -1) || (x == 0 && arriba == 1) || (x == 5 && arriba == -1) || (y == 6 && derecha == 1)){
+const comprobarDireccion = (x,y,derecha, arriba, partida, tipo ,contador = 1) => {
+    if((y == 0 && derecha == -1) || (x == 0 && arriba == 1)){
+        return contador;
+    }
+
+    if((x == partida.length - 1 && arriba == -1) || (y == partida[0].length - 1 && derecha == 1)){
         return contador;
     }
 
@@ -7,14 +11,10 @@ const comprobarDireccion = (x,y,derecha, arriba, partida, tipo, contador = 1) =>
         return contador;
     }
 
-    if(contador == 4){
-        return contador;
-    }
-
     return comprobarDireccion(x-arriba,y+derecha,derecha,arriba,partida,tipo,contador+1);
 }
 
-export const comprobarGanador = (partida) => {
+export const comprobarGanador = (partida, winCondition) => {
     let ganador = 0;
 
     partida.forEach((fila, x) => {
@@ -25,7 +25,7 @@ export const comprobarGanador = (partida) => {
                         if(j == 0 && i == 0){
                             continue;
                         }
-                        if(comprobarDireccion(x,y,j,i,partida, celda) == 4){
+                        if(comprobarDireccion(x,y,j,i,partida, celda) == winCondition){
                             ganador = celda;
                         }
                     }

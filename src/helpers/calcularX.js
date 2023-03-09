@@ -4,5 +4,5 @@ export const calcularX = (partida, y) => {
             return i == 0 ? 0 : i-1;
         }
     }
-    return 5;
+    return partida.length - 1;
 }
